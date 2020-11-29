@@ -12,6 +12,7 @@
     "react-popper": "^2.2.4",
     "react-scripts": "4.0.1",
     "reactstrap": "^8.7.1",
+    "register-service-worker": "^1.7.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
