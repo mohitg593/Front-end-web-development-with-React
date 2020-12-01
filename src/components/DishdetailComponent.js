@@ -20,7 +20,7 @@ class Dishdetail extends Component {
     }
 
     renderComments(comments) {
-        var comments = comments.map(comment => {
+        var comments = comments.map((comment) => {
             return (
                 <li key={comment.id} >
                     {comment.comment}
