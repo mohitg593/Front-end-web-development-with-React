@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Breadcrumb, BreadcrumbItem, Button, Form, FormGroup, Label, Input, Col, Row, FormFeedback} from 'reactstrap';
+import {Breadcrumb, BreadcrumbItem, Button, Form, FormGroup, Label, Input, Col, FormFeedback} from 'reactstrap';
 import {Link} from 'react-router-dom';
-import { PROMOTIONS } from '../shared/promotions';
 
 class Contact extends Component {
     constructor(props){
