@@ -23,7 +23,8 @@ const maxLength= (len) =>(val) => !(val) || (val.length <= len);
         }
         
         handleSubmit(values){
-            alert("Current state is " +JSON.stringify(values));
+            this.toggleModal();
+            this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
         }
         render(){
             return(
@@ -55,13 +56,13 @@ const maxLength= (len) =>(val) => !(val) || (val.length <= len);
                                         <Label htmlFor="name">Your Name</Label>
                                     </Col>
                                     <Col xs={12}>
-                                        <Control.text model=".name" className="form-control" id="name" name="name"
+                                        <Control.text model=".author" className="form-control" id="author" name="author"
                                             placeholder="Your Name"
                                             validators={{minLength: minLength(3), maxLength: maxLength(15)}}>
                                         </Control.text>
                                         <Errors 
                                         className="text-danger"
-                                        model=".name"
+                                        model=".author"
                                         show="touched"
                                         messages={{
                                             minLength: "Must be greater than 2 characters",
@@ -103,7 +104,7 @@ const maxLength= (len) =>(val) => !(val) || (val.length <= len);
         );
     }
 
-    function RenderComments({comments}) {
+    function RenderComments({comments, addComment, dishId}) {
         var comment = comments.map((comment) => {
             return (
                 <li key={comment.id} >
@@ -120,7 +121,7 @@ const maxLength= (len) =>(val) => !(val) || (val.length <= len);
                 <ul className="list-unstyled">
                     {comment}
                 </ul>
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment}/>
             </div>
         );
     }
@@ -146,7 +147,9 @@ const maxLength= (len) =>(val) => !(val) || (val.length <= len);
                             <RenderDish dish={props.dish} />
                         </div>
                         <div className="col-12 col-md-5 m-1">
-                            <RenderComments comments={props.comments} />
+                            <RenderComments comments={props.comments} 
+                            addComment={props.addComment}
+                            dishId={props.dish.id}/>
                         </div>
                     </div>
                 </div>
