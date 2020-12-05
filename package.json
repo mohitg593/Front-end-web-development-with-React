@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "cross-fetch": "^3.0.6",
+    "react-transition-group": "^4.4.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   }
